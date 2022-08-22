@@ -38,7 +38,9 @@ export function Header() {
             </Text>
           </Flex>
         </Flex>
-        <Link to='/cart'>
+        <Link to='/cart' style={{
+          position: 'relative',
+        }}>
           <IconButton
             aria-label='Cart'
             icon={<IoMdCart
@@ -47,6 +49,25 @@ export function Header() {
             size='sm'
             bg='yellow.100'
           />
+          <Flex
+            position={'absolute'}
+            top='-2'
+            right='-2'
+            height='20px'
+            w='20px'
+            bg='#C47F17'
+            color={'white'}
+            textAlign='center'
+            alignItems={'center'}
+            justify='center'
+            borderRadius='full'
+            fontWeight={'bold'}
+            fontSize='0.7rem'
+          >
+            <Text>
+              2
+            </Text>
+          </Flex>
         </Link>
       </Flex>
     </Flex>
