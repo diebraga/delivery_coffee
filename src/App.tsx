@@ -1,24 +1,11 @@
-import { Flex } from "@chakra-ui/react"
-import { Banner } from "./components/Banner"
-import { Header } from "./components/Header"
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from "./Router"
 
 function App() {
   return (
-    <Flex
-      flexDir={'column'}
-      justify={'center'}
-      alignItems='center'
-    >
-      <Flex
-        w='100%'
-        maxW='1000px'
-        flexDir={'column'}
-        p='5'
-      >
-        <Header />
-        <Banner />
-      </Flex>
-    </Flex>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
 

@@ -2,6 +2,7 @@ import { Box, Flex, IconButton, Text } from '@chakra-ui/react'
 import Logo from '../../assets/logo.png'
 import { IoMdCart } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -37,14 +38,16 @@ export function Header() {
             </Text>
           </Flex>
         </Flex>
-        <IconButton
-          aria-label='Cart'
-          icon={<IoMdCart
-            fill='#C05621'
-          />}
-          size='sm'
-          bg='yellow.100'
-        />
+        <Link to='/cart'>
+          <IconButton
+            aria-label='Cart'
+            icon={<IoMdCart
+              fill='#C05621'
+            />}
+            size='sm'
+            bg='yellow.100'
+          />
+        </Link>
       </Flex>
     </Flex>
   )
