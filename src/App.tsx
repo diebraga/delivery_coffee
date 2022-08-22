@@ -1,4 +1,5 @@
 import { Flex } from "@chakra-ui/react"
+import { Banner } from "./components/Banner"
 import { Header } from "./components/Header"
 
 function App() {
@@ -10,9 +11,12 @@ function App() {
     >
       <Flex
         w='100%'
-        maxW='888px'
+        maxW='1000px'
+        flexDir={'column'}
+        p='5'
       >
         <Header />
+        <Banner />
       </Flex>
     </Flex>
   )
