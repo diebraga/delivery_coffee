@@ -5,8 +5,13 @@ import { VscPackage } from "react-icons/vsc";
 import { FaCoffee } from "react-icons/fa";
 import { AiFillClockCircle } from "react-icons/ai";
 import { IconContainter } from "./IconContainter";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export function Banner() {
+  const { width } = useWindowSize()
+
+  const isSmallerThan955px = width && width < 955;
+
   return (
     <Flex
       h='544px'
@@ -84,18 +89,18 @@ export function Banner() {
           </SimpleGrid>
         </Box>
       </Box>
-
-      <Flex
-        w={["476px"]}
-        h={["360px"]}
-        alignItems='center'
-      >
-        {/* Foto */}
-        <Image
-          src={BannerImg}
-          objectFit='cover'
-        />
-      </Flex>
+      {!isSmallerThan955px && (
+        <Flex
+          w={["476px"]}
+          h={["360px"]}
+          alignItems='center'
+        >
+          <Image
+            src={BannerImg}
+            objectFit='cover'
+          />
+        </Flex>
+      )}
     </Flex>
   )
 }
