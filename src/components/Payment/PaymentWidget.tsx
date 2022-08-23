@@ -6,6 +6,7 @@ export function PaymentWidget() {
   return (
     <Flex
       flexDir={'column'}
+      mt={['35px', '35px', '35px', '0']}
     >
       <Heading
         as='h2'
