@@ -1,10 +1,21 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import { PaymentWidgetFooter } from "./PaymentWidgetFooter";
 import { PaymentWidgetItem } from "./PaymentWidgetItem";
 
 export function PaymentWidget() {
   return (
-    <Box>
+    <Flex
+      flexDir={'column'}
+    >
+      <Heading
+        as='h2'
+        fontSize={'1.1rem'}
+        mb='3'
+        ml='1'
+      >
+        Selected coffees
+      </Heading>
+
       <Flex
         maxW='448px'
         w='488px'
@@ -31,6 +42,6 @@ export function PaymentWidget() {
 
         <PaymentWidgetFooter />
       </Flex>
-    </Box>
+    </Flex>
   )
 }

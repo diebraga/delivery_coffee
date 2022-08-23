@@ -11,7 +11,7 @@ export function Cart() {
     >
       <Flex
         w='100%'
-        maxW='1000px'
+        maxW='1200px'
         flexDir={'column'}
         p='5'
       >
