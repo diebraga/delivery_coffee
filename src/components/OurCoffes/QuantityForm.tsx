@@ -1,6 +1,6 @@
 import { Button, HStack, IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
 import { IoMdCart } from "react-icons/io"
-import { useInputControl } from "./useInputControl"
+import { useInputControl } from "../../hooks/useInputControl"
 
 export function QuantityForm() {
   const {

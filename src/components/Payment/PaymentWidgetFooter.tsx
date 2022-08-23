@@ -10,8 +10,9 @@ export function PaymentWidgetFooter() {
       position={'absolute'}
       bottom='0'
       w='100%'
-      bg='blue.100'
+      bg='#F3F2F2'
       borderBottomLeftRadius={'44px'}
+      zIndex='5'
     >
       <Flex
         flexDir={'column'}
