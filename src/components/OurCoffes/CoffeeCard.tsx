@@ -46,14 +46,14 @@ export function CoffeeCard({ imageSrc, tags, content, title, price }: Props) {
           spacing={'1'}
           mt='2'
         >
-          {tags.map((tag, i) => {
+          {tags.map((tag) => {
             return (
               <Tag
                 size='sm'
                 bg='#F1E9C9'
                 color={'#C47F17'}
                 fontSize='0.7rem'
-                key={i}
+                key={tag.label}
               >
                 {tag.label}
               </Tag>
