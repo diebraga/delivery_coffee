@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { Banner } from "../../components/Banner";
 import { Header } from "../../components/Header";
+import { OurCoffes } from "../../components/OurCoffes";
 
 export function Home() {
   return (
@@ -17,6 +18,7 @@ export function Home() {
       >
         <Header />
         <Banner />
+        <OurCoffes />
       </Flex>
     </Flex>
   )
