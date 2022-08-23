@@ -1,18 +1,13 @@
 import { Flex } from "@chakra-ui/react";
-import { useWindowSize } from "../../hooks/useWindowSize";
 import { PaymentForm } from "./PaymentForm";
 import { PaymentOptions } from "./PaymentOptions";
 import { PaymentWidget } from "./PaymentWidget";
 
 export function Payment() {
-  const { width } = useWindowSize()
-
-  const isSmallerThan1336px = width && width < 1336
-
   return (
     <Flex
-      justify={isSmallerThan1336px ? "center" : 'space-between'}
-      flexDir={"column"}
+      justify={'space-between'}
+      flexDir={['column', 'column', 'column', 'row']}
       mt='70px'
     >
       <Flex

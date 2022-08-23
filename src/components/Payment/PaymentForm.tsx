@@ -1,11 +1,6 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import { useWindowSize } from "../../hooks/useWindowSize";
 
 export function PaymentForm() {
-  const { width } = useWindowSize()
-
-  const isSmallerThan1336px = width && width < 1336
-
   return (
     <Box>
       <Heading
@@ -19,9 +14,10 @@ export function PaymentForm() {
 
       <Flex
         flexDir={'column'}
-        w={isSmallerThan1336px ? "100%" : '640px'}
+        w={["100%", "100%", "100%", "640px"]}
         bg='#F3F2F2'
         h='372px'
+        borderRadius={'6px'}
       >
 
 

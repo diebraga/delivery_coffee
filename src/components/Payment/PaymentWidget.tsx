@@ -17,8 +17,8 @@ export function PaymentWidget() {
       </Heading>
 
       <Flex
-        maxW='448px'
-        w='488px'
+        w={["100%", "100%", "100%", "448px"]}
+        maxW={["100%", "100%", "100%", "448px"]}
         h='498px'
         bg='#F3F2F2'
         borderTopLeftRadius={'6px'}
