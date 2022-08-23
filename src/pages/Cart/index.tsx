@@ -1,6 +1,23 @@
+import { Flex } from "@chakra-ui/react";
+import { Header } from "../../components/Header";
+import { Payment } from "../../components/Payment";
 
 export function Cart() {
   return (
-    <div>Cart</div>
+    <Flex
+      flexDir={'column'}
+      justify={'center'}
+      alignItems='center'
+    >
+      <Flex
+        w='100%'
+        maxW='1000px'
+        flexDir={'column'}
+        p='5'
+      >
+        <Header />
+        <Payment />
+      </Flex>
+    </Flex>
   )
 }

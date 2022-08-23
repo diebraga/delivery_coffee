@@ -12,9 +12,9 @@ export function Header() {
       alignItems={'center'}
       justify='space-between'
     >
-      <Box>
+      <Link to='/'>
         <img src={Logo} />
-      </Box>
+      </Link>
       <Flex>
         <Flex
           bg='purple.100'
