@@ -1,5 +1,6 @@
 import { Flex, Heading, Image, Tag, HStack, Text } from "@chakra-ui/react";
-import { QuantityForm } from "./QuantityForm";
+import { FC, memo } from "react";
+import QuantityForm from "./QuantityForm";
 
 interface Tags {
   label: string
@@ -14,7 +15,7 @@ interface Props {
   productRef: string
 }
 
-export function CoffeeCard({ imageSrc, tags, content, title, price, productRef }: Props) {
+const CoffeeCard: FC<Props> = ({ imageSrc, tags, content, title, price, productRef }) => {
   return (
     <Flex
       w='16rem'
@@ -116,5 +117,7 @@ export function CoffeeCard({ imageSrc, tags, content, title, price, productRef }
           />
         </Flex>
       </Flex>
-    </Flex>)
+    </Flex >)
 }
+
+export default memo(CoffeeCard)

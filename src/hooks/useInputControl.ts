@@ -42,6 +42,7 @@ export function useInputControl({ defaultNum = 0 }: Props) {
       return array.map(item => {
         return {
           ...item,
+          price: newProduct.price,
           quantity: count
         }
       })

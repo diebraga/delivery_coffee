@@ -1,7 +1,7 @@
 import { Flex, Heading, Wrap, WrapItem } from "@chakra-ui/react";
 import Cafe from '../../assets/coffee/cold_espresso.png'
 import { useWindowSize } from "../../hooks/useWindowSize";
-import { CoffeeCard } from "./CoffeeCard";
+import CoffeeCard from "./CoffeeCard";
 import products from "../../data/products.json";
 
 export function OurCoffes() {
@@ -18,7 +18,7 @@ export function OurCoffes() {
       >
         Our Coffee
       </Heading>
-      <Wrap mt='49px' justify={width && width > 821 ? 'space-between' : 'space-around'}>
+      <Wrap mt='49px' justify={['space-around', 'space-around', 'space-around', 'space-between']}>
         {products.map(product => {
           return (
             <WrapItem key={product.id}>

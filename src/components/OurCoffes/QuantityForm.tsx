@@ -1,5 +1,5 @@
 import { Button, HStack, IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
-import { useState } from "react"
+import { FC } from "react"
 import { IoMdCart } from "react-icons/io"
 import { useCart } from "../../hooks/useCart"
 import { useInputControl } from "../../hooks/useInputControl"
@@ -19,7 +19,7 @@ type ProductType = {
   quantity: number
 }
 
-export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
+const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
   const {
     setCart,
     cart
@@ -39,10 +39,10 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
     const newProduct: ProductType = {
       picture: imageSrc,
       title,
-      price,
+      price: price * count,
       productRef,
       quantity: count
-    }  
+    }
     setCart(prev => handeleCartControl({
       array: prev,
       newProduct,
@@ -100,3 +100,5 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
     </HStack>
   )
 }
+
+export default QuantityForm
