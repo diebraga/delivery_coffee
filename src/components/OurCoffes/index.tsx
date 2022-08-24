@@ -1,11 +1,8 @@
 import { Flex, Heading, Wrap, WrapItem } from "@chakra-ui/react";
-import Cafe from '../../assets/coffee/cold_espresso.png'
-import { useWindowSize } from "../../hooks/useWindowSize";
 import CoffeeCard from "./CoffeeCard";
 import products from "../../data/products.json";
 
 export function OurCoffes() {
-  const { width } = useWindowSize()
   return (
     <Flex
       flexDir={'column'}
