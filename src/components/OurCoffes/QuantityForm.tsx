@@ -1,15 +1,63 @@
 import { Button, HStack, IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
+import { useState } from "react"
 import { IoMdCart } from "react-icons/io"
+import { useCart } from "../../hooks/useCart"
 import { useInputControl } from "../../hooks/useInputControl"
 
-export function QuantityForm() {
+interface Props {
+  imageSrc: string
+  title: string
+  price: number
+  productRef: string
+}
+
+type ProductType = {
+  productRef: string
+  picture: string
+  title: string
+  price: number
+  quantity: number
+}
+
+export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
+  const {
+    setCart,
+    cart
+  } = useCart()
+
+  const currentItem = cart.find(item => item.productRef === productRef)
+
   const {
     count,
     decrement,
     icrement,
     setCount
-  } = useInputControl({ defaultNum: 1 })
+  } = useInputControl({ defaultNum: currentItem?.quantity })
 
+  
+  function handeleAddToCart() {
+    const newProduct: ProductType = {
+      picture: imageSrc,
+      title,
+      price,
+      productRef,
+      quantity: count
+    }
+    setCart(prev => {
+      if (prev.find(item => item.productRef === productRef)) {
+        return prev.map(item => {
+          return {
+            ...item,
+            quantity: count
+          }
+        })
+      } else {
+        return [...prev, newProduct]
+      }
+    })
+  }
+
+  // console.log(cart)
   return (
     <HStack>
       <InputGroup size='sm'>
@@ -53,6 +101,8 @@ export function QuantityForm() {
         />}
         size='sm'
         bg='#4B2995'
+        disabled={count < 1}
+        onClick={(handeleAddToCart)}
       />
     </HStack>
   )

@@ -1,8 +1,13 @@
 import { createContext, ReactNode } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import Products from '../data/products.json'
 
-type ProductType = typeof Products
+type ProductType = {
+  productRef: string
+  picture: string
+  title: string
+  price: number
+  quantity: number
+}
 
 interface CartProviderProp {
   children: ReactNode
@@ -10,7 +15,7 @@ interface CartProviderProp {
 
 interface CartContextProps {
   cart: ProductType[]
-  setCart: any
+  setCart: (value: ProductType[] | ((val: ProductType[]) => ProductType[])) => void
 }
 
 export const CartContext = createContext({} as CartContextProps)

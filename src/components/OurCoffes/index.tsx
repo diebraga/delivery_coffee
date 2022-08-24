@@ -27,7 +27,8 @@ export function OurCoffes() {
                 tags={product.tags}
                 title={product.title}
                 content={product.content}
-                price={String(product.price)}
+                price={(product.price)}
+                productRef={product.ref}
               />
             </WrapItem>
           )

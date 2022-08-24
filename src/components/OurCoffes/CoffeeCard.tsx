@@ -10,10 +10,11 @@ interface Props {
   tags: Tags[]
   title: string
   content: string
-  price: string
+  price: number
+  productRef: string
 }
 
-export function CoffeeCard({ imageSrc, tags, content, title, price }: Props) {
+export function CoffeeCard({ imageSrc, tags, content, title, price, productRef }: Props) {
   return (
     <Flex
       w='16rem'
@@ -107,7 +108,12 @@ export function CoffeeCard({ imageSrc, tags, content, title, price }: Props) {
           </Text>
         </Flex>
         <Flex>
-          <QuantityForm />
+          <QuantityForm
+            imageSrc={imageSrc}
+            title={title}
+            price={price}
+            productRef={productRef}
+          />
         </Flex>
       </Flex>
     </Flex>)

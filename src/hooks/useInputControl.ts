@@ -4,7 +4,7 @@ interface Props {
   defaultNum?: number
 }
 
-export function useInputControl({ defaultNum = 1 }: Props) {
+export function useInputControl({ defaultNum = 0 }: Props) {
   const [count, setCount] = useState<number>(defaultNum)
 
   function icrement() {
@@ -14,7 +14,7 @@ export function useInputControl({ defaultNum = 1 }: Props) {
   }
 
   function decrement() {
-    if (count > 1) {
+    if (count > 0) {
       setCount(prev => prev - 1)
     }
   }
