@@ -34,7 +34,7 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
     setCount
   } = useInputControl({ defaultNum: currentItem?.quantity })
 
-  
+
   function handeleAddToCart() {
     const newProduct: ProductType = {
       picture: imageSrc,
@@ -44,16 +44,16 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
       quantity: count
     }
     setCart(prev => {
-      if (prev.find(item => item.productRef === productRef)) {
+      if (prev.find(item => item.productRef === productRef && count !== 0)) {
         return prev.map(item => {
           return {
             ...item,
             quantity: count
           }
         })
-      } else {
+      } else if (count > 0) {
         return [...prev, newProduct]
-      }
+      } else return prev.filter(item => item.productRef !== productRef)
     })
   }
 
@@ -101,7 +101,6 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
         />}
         size='sm'
         bg='#4B2995'
-        disabled={count < 1}
         onClick={(handeleAddToCart)}
       />
     </HStack>
