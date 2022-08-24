@@ -31,33 +31,27 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
     count,
     decrement,
     icrement,
-    setCount
+    setCount,
+    handeleCartControl
   } = useInputControl({ defaultNum: currentItem?.quantity })
 
-
-  function handeleAddToCart() {
+  function handleCart() {
     const newProduct: ProductType = {
       picture: imageSrc,
       title,
       price,
       productRef,
       quantity: count
-    }
-    setCart(prev => {
-      if (prev.find(item => item.productRef === productRef && count !== 0)) {
-        return prev.map(item => {
-          return {
-            ...item,
-            quantity: count
-          }
-        })
-      } else if (count > 0) {
-        return [...prev, newProduct]
-      } else return prev.filter(item => item.productRef !== productRef)
-    })
+    }  
+    setCart(prev => handeleCartControl({
+      array: prev,
+      newProduct,
+      statement1: prev.some(item => item.productRef === productRef) && count !== 0,
+      statement2: count > 0
+    }))
   }
 
-  // console.log(cart)
+  console.log(cart)
   return (
     <HStack>
       <InputGroup size='sm'>
@@ -101,7 +95,7 @@ export function QuantityForm({ imageSrc, price, title, productRef }: Props) {
         />}
         size='sm'
         bg='#4B2995'
-        onClick={(handeleAddToCart)}
+        onClick={(handleCart)}
       />
     </HStack>
   )
