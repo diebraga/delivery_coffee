@@ -1,6 +1,7 @@
 import { useToast } from "@chakra-ui/react"
 import { useState } from "react"
 import { ToastNotification } from "../components/Toast"
+import { useCart } from "./useCart"
 
 interface Props {
   defaultNum?: number
@@ -17,6 +18,9 @@ type ProductType = {
 export function useInputControl({ defaultNum = 0 }: Props) {
   const [count, setCount] = useState<number>(defaultNum)
   const toast = useToast()
+  const {
+    setCartNotificationOn,
+  } = useCart()
 
   function icrement() {
     if (count < 9) {
@@ -60,16 +64,22 @@ export function useInputControl({ defaultNum = 0 }: Props) {
       })
       return foundItem
     } else if (statement2) {
+      setCartNotificationOn(prev => prev + 1)
       toast.closeAll()
       toast({
-        render: () => <ToastNotification title="New" content={`You have ${count} ${newProduct.title} in your cart`} color='green.500'/>,
+        render: () => <ToastNotification title="New" content={`You have ${count} ${newProduct.title} in your cart`} color='green.500' />,
         position: 'top'
       })
       return [...array, newProduct]
     } else {
+      setCartNotificationOn(prev => {
+        if (prev > 0) {
+          return prev - 1
+        } else return prev
+      })
       toast.closeAll()
       toast({
-        render: () => <ToastNotification title="Deleted" content={`${newProduct.title} has been deleted from your cart`} color='red.500'/>,
+        render: () => <ToastNotification title="Deleted" content={`${newProduct.title} has been deleted from your cart`} color='red.500' />,
         position: 'top'
       })
       return array.filter(item => item.productRef !== newProduct.productRef)

@@ -51,7 +51,6 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
     }))
   }
 
-  console.log(cart)
   return (
     <HStack>
       <InputGroup size='sm'>
