@@ -1,8 +1,19 @@
 import { Flex, Text, Image, Divider, Box } from "@chakra-ui/react";
-import Cafe from '../../assets/coffee/cold_espresso.png'
 import { PaymentWidgetQuantityControl } from "./PaymentWidgetQuantityControl";
 
-export function PaymentWidgetItem() {
+type ProductType = {
+  productRef: string
+  picture: string
+  title: string
+  price: number
+  quantity: number
+}
+
+interface Props {
+  item: ProductType
+}
+
+export function PaymentWidgetItem({ item }: Props) {
   return (
     <Flex
       flexDir={'column'}
@@ -16,7 +27,7 @@ export function PaymentWidgetItem() {
       >
         <Flex>
           <Flex>
-            <Image src={Cafe} w='64px' h='64px' />
+            <Image src={item.picture} w='64px' h='64px' />
 
             <Flex
               ml='3'
@@ -26,11 +37,11 @@ export function PaymentWidgetItem() {
               <Text
                 as='h4'
               >
-                Cold Espresso
+                {item.title}
               </Text>
 
               <Flex>
-                <PaymentWidgetQuantityControl />
+                <PaymentWidgetQuantityControl item={item}/>
               </Flex>
             </Flex>
           </Flex>
@@ -41,7 +52,7 @@ export function PaymentWidgetItem() {
             as='span'
             fontWeight={'700'}
           >
-            € 8.90
+            € {item.price}
           </Text>
         </Flex>
       </Flex>

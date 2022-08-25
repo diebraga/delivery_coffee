@@ -1,8 +1,13 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { useCart } from "../../hooks/useCart";
 import { PaymentWidgetFooter } from "./PaymentWidgetFooter";
 import { PaymentWidgetItem } from "./PaymentWidgetItem";
 
 export function PaymentWidget() {
+  const {
+    cart
+  } = useCart()
+
   return (
     <Flex
       flexDir={'column'}
@@ -35,10 +40,21 @@ export function PaymentWidget() {
           overflow={'scroll'}
           borderTopRightRadius='44px'
         >
-          <PaymentWidgetItem />
-          <PaymentWidgetItem />
-          <PaymentWidgetItem />
-          <PaymentWidgetItem />
+          {cart.length > 0 ? cart.map(item => {
+            return <PaymentWidgetItem item={item} key={item.productRef}/>
+          }) : (
+            <Flex
+              justify={'center'}
+              alignItems='center'
+              h='300px'
+              fontSize={'md'}
+              fontWeight="bold"
+            >
+              <Text>
+                Nothing in your cart yet ;)
+              </Text>
+            </Flex>
+          )}
         </Flex>
 
         <PaymentWidgetFooter />

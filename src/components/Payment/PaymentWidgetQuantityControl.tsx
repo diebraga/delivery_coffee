@@ -2,13 +2,25 @@ import { Button, Flex, HStack, Input, InputGroup, InputLeftElement, InputRightEl
 import { GoTrashcan } from "react-icons/go"
 import { useInputControl } from "../../hooks/useInputControl"
 
-export function PaymentWidgetQuantityControl() {
+type ProductType = {
+  productRef: string
+  picture: string
+  title: string
+  price: number
+  quantity: number
+}
+
+interface Props {
+  item: ProductType
+}
+
+export function PaymentWidgetQuantityControl({ item }: Props) {
   const {
     count,
     decrement,
     icrement,
     setCount
-  } = useInputControl({ defaultNum: 1 })
+  } = useInputControl({ defaultNum: item.quantity })
 
   return (
     <Flex>

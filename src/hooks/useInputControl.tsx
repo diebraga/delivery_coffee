@@ -72,11 +72,6 @@ export function useInputControl({ defaultNum = 0 }: Props) {
       })
       return [...array, newProduct]
     } else {
-      setCartNotificationOn(prev => {
-        if (prev > 0) {
-          return prev - 1
-        } else return prev
-      })
       toast.closeAll()
       toast({
         render: () => <ToastNotification title="Deleted" content={`${newProduct.title} has been deleted from your cart`} color='red.500' />,
