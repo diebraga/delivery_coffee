@@ -25,7 +25,7 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
     cart
   } = useCart()
 
-  const currentItem = cart.find(item => item.productRef === productRef)
+  const currentItem = cart && cart.find(item => item.productRef === productRef)
 
   const {
     count,
@@ -33,7 +33,7 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
     icrement,
     setCount,
     handeleCartControl
-  } = useInputControl({ defaultNum: currentItem?.quantity })
+  } = useInputControl({ defaultNum: currentItem?.quantity || 0 })
 
   function handleCart() {
     const newProduct: ProductType = {

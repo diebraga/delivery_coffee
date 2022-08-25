@@ -51,6 +51,7 @@ export function PaymentWidgetFooter() {
           bg='#DBAC2C'
           color='white'
           mt='3'
+          type="submit"
         >
           Confirm Payment
         </Button>

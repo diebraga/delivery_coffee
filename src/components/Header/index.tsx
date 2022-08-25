@@ -10,7 +10,7 @@ export function Header() {
     setCartNotificationOn,
     cartNotificationOn
   } = useCart()
-  console.log(cartNotificationOn)
+
   return (
     <Flex
       justify={'center'}
