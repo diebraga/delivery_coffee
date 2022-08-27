@@ -3,6 +3,7 @@ import { createContext, ReactNode, useState } from 'react'
 import { FieldErrorsImpl, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
 import { Inputs, PaymentOption, ProductType, SummaryType } from '../@types/products'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { useNavigate } from "react-router-dom";
 
 interface CartProviderProp {
   children: ReactNode
@@ -36,6 +37,7 @@ export function CartProvider({ children }: CartProviderProp) {
     mode: 'all'
   });
 
+  const navigateTo = useNavigate();
   const toast = useToast()
 
   const totalPriceEveryItem = cart.map(item => item.totalPrice).reduce((prev, curr) => prev + curr, 0);
@@ -69,7 +71,10 @@ export function CartProvider({ children }: CartProviderProp) {
         isClosable: true,
         position: "top"
       })
-    } else setInputData(data)
+    } else {
+      setInputData(data)
+      navigateTo('/deliveryConfirmation')
+    }
   }
   console.log(summary)
 

@@ -1,0 +1,12 @@
+.border {
+  padding: 40px;
+  border-top: 1px solid #DBAC2C;
+  border-bottom:1px solid #8047F8;
+  background-image: 
+      linear-gradient(#DBAC2C, #8047F8),
+      linear-gradient(#DBAC2C, #8047F8)
+  ;
+  background-size:1px 100%;
+  background-position:0 0, 100% 0;
+  background-repeat:no-repeat;
+}
