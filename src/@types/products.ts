@@ -6,3 +6,9 @@ export type ProductType = {
   totalPrice: number
   quantity: number
 }
+
+export type SummaryType = {
+  totalPriceEveryItem: number,
+  deliveryPrice: number
+}
+

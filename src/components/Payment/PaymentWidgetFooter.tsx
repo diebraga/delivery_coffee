@@ -1,6 +1,12 @@
 import { Button, Flex } from "@chakra-ui/react";
+import { useCart } from "../../hooks/useCart";
 
 export function PaymentWidgetFooter() {
+  const {
+    summary
+  } = useCart()
+
+  const { deliveryPrice, totalPriceEveryItem } = summary
   return (
     <Flex
       as='footer'
@@ -24,7 +30,7 @@ export function PaymentWidgetFooter() {
           mt='2'
         >
           <Flex>Total Items</Flex>
-          <Flex>€ 23.20</Flex>
+          <Flex>€ {totalPriceEveryItem}</Flex>
         </Flex>
 
         <Flex
@@ -33,7 +39,7 @@ export function PaymentWidgetFooter() {
           mt='2'
         >
           <Flex>Delivery</Flex>
-          <Flex>€ 3.20</Flex>
+          <Flex>€ {deliveryPrice}</Flex>
         </Flex>
 
         <Flex
@@ -43,7 +49,7 @@ export function PaymentWidgetFooter() {
           mt='2'
         >
           <Flex>Total</Flex>
-          <Flex>€ 26.40</Flex>
+          <Flex>€ {totalPriceEveryItem + deliveryPrice}</Flex>
         </Flex>
 
         <Button

@@ -1,6 +1,6 @@
 import { createContext, ReactNode } from 'react'
 import { FieldErrorsImpl, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
-import { ProductType } from '../@types/products'
+import { ProductType, SummaryType } from '../@types/products'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 interface CartProviderProp {
@@ -16,6 +16,7 @@ interface CartContextProps {
   onSubmit: SubmitHandler<Inputs>
   register: UseFormRegister<Inputs>
   errors: FieldErrorsImpl<Inputs>
+  summary: SummaryType
 }
 
 interface Inputs {
@@ -32,11 +33,21 @@ export function CartProvider({ children }: CartProviderProp) {
   const [cart, setCart] = useLocalStorage<ProductType[]>("coffee.delivery.cart", [])
   const [cartNotificationOn, setCartNotificationOn] = useLocalStorage<number>("coffee.delivery.cart.notification.status", 0)
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>({
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
     mode: 'all'
   });
+
+  const totalPriceEveryItem = cart.map(item => item.totalPrice).reduce((prev, curr) => prev + curr, 0);
+
+  const deliveryPrice = cart.length > 0 ? 3.50 : 0
+
+  const summary: SummaryType = {
+    totalPriceEveryItem,
+    deliveryPrice
+  }
   const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
-console.log(cart)
+  console.log(totalPriceEveryItem)
+
   return (
     <CartContext.Provider value={{
       cart,
@@ -46,7 +57,8 @@ console.log(cart)
       handleSubmit,
       onSubmit,
       register,
-      errors
+      errors,
+      summary
     }}>
       {children}
     </CartContext.Provider>
