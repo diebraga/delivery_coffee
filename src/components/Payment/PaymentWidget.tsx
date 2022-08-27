@@ -37,8 +37,8 @@ export function PaymentWidget() {
       >
         <Flex
           flexDir={'column'}
-          h='437px'
-          overflow={'scroll'}
+          h='290px'
+          overflowY={'scroll'}
           borderTopRightRadius='44px'
         >
           {cart.length > 0 ? cart.map(item => {

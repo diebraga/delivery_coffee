@@ -15,7 +15,8 @@ export function PaymentWidgetQuantityControl({ item }: Props) {
     decrement,
     icrement,
     setCount,
-    handeleCartControl
+    handeleCartControl,
+    deleteItem
   } = useInputControl({ defaultNum: item.quantity })
 
   const {
@@ -39,6 +40,8 @@ export function PaymentWidgetQuantityControl({ item }: Props) {
   }
 
   useEffect(() => handleCart(), [count])
+
+  const handleDeleteItem = (): void => setCart(prev => deleteItem(prev, item.productRef)) 
 
   return (
     <Flex>
@@ -86,6 +89,7 @@ export function PaymentWidgetQuantityControl({ item }: Props) {
         ml='2'
         leftIcon={<GoTrashcan fill='#4B2995' />}
         bg='#E6E5E5'
+        onClick={handleDeleteItem}
       >
         REMOVE
       </Button>

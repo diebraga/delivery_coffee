@@ -52,7 +52,7 @@ export function useInputControl({ defaultNum = 0 }: Props) {
           toast({
             render: () => <ToastNotification title="Updated" content={`You have ${count} ${item.title} in your cart`} color='blue.500' />,
             position: 'top'
-          })    
+          })
           return {
             ...item,
             quantity: count,
@@ -67,16 +67,19 @@ export function useInputControl({ defaultNum = 0 }: Props) {
         render: () => <ToastNotification title="New" content={`You have ${count} ${newProduct.title} in your cart`} color='green.500' />,
         position: 'top'
       })
-      array.filter(item => item.productRef !== newProduct.productRef)
+
       return [...array, newProduct]
     }
   }
+
+  const deleteItem = (array: ProductType[], productRef: string): ProductType[] => array.filter(item => item.productRef !== productRef)
 
   return {
     count,
     icrement,
     decrement,
     setCount,
-    handeleCartControl
+    handeleCartControl,
+    deleteItem
   }
 }
