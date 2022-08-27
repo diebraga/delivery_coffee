@@ -29,7 +29,7 @@
     ],
     "title": "American",
     "content": "Delicious soft american coffee hot drink.",
-    "price": 3.35
+    "price": 3.50
   },
   {
     "id": 3,
@@ -61,7 +61,7 @@
     ],
     "title": "Capuccino",
     "content": "Delicious hot capuccino drink with cinnamon.",
-    "price": 4.85
+    "price": 4.50
   },
   {
     "id": 5,
@@ -101,7 +101,7 @@
     ],
     "title": "Cuban",
     "content": "Delicious special cold drink made with coffee rom and mint.",
-    "price": 8.55
+    "price": 8.50
   },
   {
     "id": 7,
@@ -115,7 +115,7 @@
     ],
     "title": "Espresso cream",
     "content": "Delicious espresso hot coffee drink with cream.",
-    "price": 4.55
+    "price": 4.50
   },
   {
     "id": 8,
@@ -129,7 +129,7 @@
     ],
     "title": "Hawaian",
     "content": "Special hot coffee drink prepared with coconut milk.",
-    "price": 6.55
+    "price": 6.50
   },
   {
     "id": 9,
@@ -147,7 +147,7 @@
     ],
     "title": "Hot Chocolate",
     "content": "Special hot coffee drink prepared with chocolate and milk.",
-    "price": 5.55
+    "price": 5.50
   },
   {
     "id": 10,
@@ -165,7 +165,7 @@
     ],
     "title": "Irish",
     "content": "Special hot coffee drink prepared with irish whiskey, sugar and cream.",
-    "price": 10.35
+    "price": 10.00
   },
   {
     "id": 19,
@@ -183,7 +183,7 @@
     ],
     "title": "Latte",
     "content": "Special hot coffee drink prepared with espresso and double milk.",
-    "price": 4.35
+    "price": 4.00
   },
   {
     "id": 11,
@@ -201,7 +201,7 @@
     ],
     "title": "Macciato",
     "content": "Special hot coffee drink prepared with espresso and hot milk.",
-    "price": 4.35
+    "price": 4.50
   },
   {
     "id": 12,
@@ -219,7 +219,7 @@
     ],
     "title": "Mocaccino",
     "content": "Special hot coffee drink prepared with espresso, hot milk and chcolate.",
-    "price": 6.15
+    "price": 6.50
   },
   {
     "id": 13,
@@ -233,6 +233,6 @@
     ],
     "title": "Traditional Espresso",
     "content": "Special hot coffee drink prepared with special grains and hot water.",
-    "price": 4.15
+    "price": 4.50
   }
 ]

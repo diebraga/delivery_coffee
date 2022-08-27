@@ -33,7 +33,7 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
       picture: imageSrc,
       title,
       price: price,
-      totalPrice: price * count,
+      totalPrice: (price * count),
       productRef,
       quantity: count
     }

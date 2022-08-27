@@ -56,7 +56,7 @@ export function useInputControl({ defaultNum = 0 }: Props) {
           return {
             ...item,
             quantity: count,
-            price: newProduct.price
+            totalPrice: newProduct.totalPrice
           }
         } else return item
       })

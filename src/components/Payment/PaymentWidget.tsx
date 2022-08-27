@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link as ChackaLink, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { PaymentWidgetFooter } from "./PaymentWidgetFooter";
 import { PaymentWidgetItem } from "./PaymentWidgetItem";
@@ -41,7 +42,7 @@ export function PaymentWidget() {
           borderTopRightRadius='44px'
         >
           {cart.length > 0 ? cart.map(item => {
-            return <PaymentWidgetItem item={item} key={item.productRef}/>
+            return <PaymentWidgetItem item={item} key={item.productRef} />
           }) : (
             <Flex
               justify={'center'}
@@ -49,10 +50,16 @@ export function PaymentWidget() {
               h='300px'
               fontSize={'md'}
               fontWeight="bold"
+              flexDir={'column'}
             >
               <Text>
                 Nothing in your cart yet ;)
               </Text>
+              <Link to='/'>
+                <ChackaLink as='p' pt='4' color='blue.400' textAlign={'center'}>
+                  Buy your coffee.
+                </ChackaLink>
+              </Link>
             </Flex>
           )}
         </Flex>
