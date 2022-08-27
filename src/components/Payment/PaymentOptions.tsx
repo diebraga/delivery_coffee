@@ -3,8 +3,15 @@ import { IconType } from "react-icons";
 import { RiBankLine } from "react-icons/ri";
 import { CgCreditCard } from "react-icons/cg";
 import { BsCash, BsCurrencyDollar } from "react-icons/bs";
+import { useCart } from "../../hooks/useCart";
 
 export function PaymentOptions() {
+  const { setPeymentOption, paymentOption } = useCart()
+  const paymentOptions = [
+    { id: 1, content: "CREDIT CARD", icon: CgCreditCard },
+    { id: 2, content: "DEBIT CARD", icon: RiBankLine },
+    { id: 3, content: "CASH", icon: BsCash },
+  ]
   return (
     <Flex
       flexDir={'column'}
@@ -48,20 +55,40 @@ export function PaymentOptions() {
           spacing='5'
           mt='8'
         >
-          <OptionBox content="CREDIT CARD" CustomIcon={CgCreditCard} />
-          <OptionBox content="DEBIT CARD" CustomIcon={RiBankLine} />
-          <OptionBox content="CASH" CustomIcon={BsCash} />
+          {paymentOptions.map(option => {
+            const onClick = () => setPeymentOption({
+              id: option.id,
+              option: option.content
+            })
+            return <OptionBox
+              content={option.content}
+              CustomIcon={option.icon}
+              key={option.id}
+              onClick={onClick}
+              isChoosen={paymentOption.option === option.content}
+            />
+          })}
         </HStack>
       </Flex>
     </Flex>
   )
 }
 
-function OptionBox({ content, CustomIcon }: { content: string, CustomIcon: IconType }) {
+function OptionBox({
+  content,
+  CustomIcon,
+  onClick,
+  isChoosen
+}: {
+  content: string,
+  CustomIcon: IconType,
+  onClick: () => void,
+  isChoosen: boolean
+}) {
   return (
     <Flex
+      onClick={onClick}
       borderRadius={'6px'}
-      bg='#E6E5E5'
       h='61px'
       w='100%'
       fontSize={['0.8rem', '0.8rem', '1rem']}
@@ -70,6 +97,8 @@ function OptionBox({ content, CustomIcon }: { content: string, CustomIcon: IconT
       justify='center'
       color='#574F4D'
       cursor={'pointer'}
+      border={isChoosen ? `1px solid #8047F8` : 'none'}
+      bg={isChoosen ? "#EBE5F9" : '#E6E5E5'}
     >
       <Text>
         <Icon as={CustomIcon} mr='2' color='#4B2995' />{content}

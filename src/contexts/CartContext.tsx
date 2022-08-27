@@ -1,6 +1,7 @@
-import { createContext, ReactNode } from 'react'
+import { useToast } from '@chakra-ui/react'
+import { createContext, ReactNode, useState } from 'react'
 import { FieldErrorsImpl, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
-import { ProductType, SummaryType } from '../@types/products'
+import { Inputs, PaymentOption, ProductType, SummaryType } from '../@types/products'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 interface CartProviderProp {
@@ -17,14 +18,8 @@ interface CartContextProps {
   register: UseFormRegister<Inputs>
   errors: FieldErrorsImpl<Inputs>
   summary: SummaryType
-}
-
-interface Inputs {
-  eircode: string
-  address: string
-  apt: string
-  city: string
-  county: string
+  setPeymentOption: React.Dispatch<React.SetStateAction<PaymentOption>>
+  paymentOption: PaymentOption
 }
 
 export const CartContext = createContext({} as CartContextProps)
@@ -33,20 +28,50 @@ export function CartProvider({ children }: CartProviderProp) {
   const [cart, setCart] = useLocalStorage<ProductType[]>("coffee.delivery.cart", [])
   const [cartNotificationOn, setCartNotificationOn] = useLocalStorage<number>("coffee.delivery.cart.notification.status", 0)
 
+  const [paymentOption, setPeymentOption] = useState({} as PaymentOption)
+
+  const [inputData, setInputData] = useState({} as Inputs)
+
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
     mode: 'all'
   });
+
+  const toast = useToast()
 
   const totalPriceEveryItem = cart.map(item => item.totalPrice).reduce((prev, curr) => prev + curr, 0);
 
   const deliveryPrice = cart.length > 0 ? 3.50 : 0
 
   const summary: SummaryType = {
+    delivery_info: { ...inputData },
+    deliveryPrice,
     totalPriceEveryItem,
-    deliveryPrice
+    total: deliveryPrice + totalPriceEveryItem,
+    paymentOption: paymentOption.option,
+    products_info: cart.map(item => {
+      return {
+        price_uinity: item.price,
+        product_name: item.title,
+        quantity: item.quantity,
+        total_price: item.totalPrice
+      }
+    })
   }
-  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
-  console.log(totalPriceEveryItem)
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    if (!paymentOption.option) {
+      toast.closeAll()
+      toast({
+        title: 'Error',
+        description: "Choose you payment option",
+        status: 'error',
+        duration: 8000,
+        isClosable: true,
+        position: "top"
+      })
+    } else setInputData(data)
+  }
+  console.log(summary)
 
   return (
     <CartContext.Provider value={{
@@ -58,7 +83,9 @@ export function CartProvider({ children }: CartProviderProp) {
       onSubmit,
       register,
       errors,
-      summary
+      summary,
+      setPeymentOption,
+      paymentOption
     }}>
       {children}
     </CartContext.Provider>
