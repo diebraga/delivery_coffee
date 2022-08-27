@@ -1,6 +1,7 @@
 import { Button, HStack, IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
 import { FC } from "react"
 import { IoMdCart } from "react-icons/io"
+import { ProductType } from "../../@types/products"
 import { useCart } from "../../hooks/useCart"
 import { useInputControl } from "../../hooks/useInputControl"
 
@@ -9,14 +10,6 @@ interface Props {
   title: string
   price: number
   productRef: string
-}
-
-type ProductType = {
-  productRef: string
-  picture: string
-  title: string
-  price: number
-  quantity: number
 }
 
 const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
@@ -39,7 +32,8 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
     const newProduct: ProductType = {
       picture: imageSrc,
       title,
-      price: price * count,
+      price: price,
+      totalPrice: price * count,
       productRef,
       quantity: count
     }

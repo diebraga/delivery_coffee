@@ -1,14 +1,7 @@
 import { Button, Flex, HStack, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react"
 import { GoTrashcan } from "react-icons/go"
+import { ProductType } from "../../@types/products"
 import { useInputControl } from "../../hooks/useInputControl"
-
-type ProductType = {
-  productRef: string
-  picture: string
-  title: string
-  price: number
-  quantity: number
-}
 
 interface Props {
   item: ProductType

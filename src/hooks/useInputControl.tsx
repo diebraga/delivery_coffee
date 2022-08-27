@@ -1,18 +1,11 @@
 import { useToast } from "@chakra-ui/react"
 import { useState } from "react"
+import { ProductType } from "../@types/products"
 import { ToastNotification } from "../components/Toast"
 import { useCart } from "./useCart"
 
 interface Props {
   defaultNum?: number
-}
-
-type ProductType = {
-  productRef: string
-  picture: string
-  title: string
-  price: number
-  quantity: number
 }
 
 export function useInputControl({ defaultNum = 0 }: Props) {

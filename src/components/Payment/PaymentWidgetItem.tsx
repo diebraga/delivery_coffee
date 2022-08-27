@@ -1,13 +1,6 @@
 import { Flex, Text, Image, Divider, Box } from "@chakra-ui/react";
+import { ProductType } from "../../@types/products";
 import { PaymentWidgetQuantityControl } from "./PaymentWidgetQuantityControl";
-
-type ProductType = {
-  productRef: string
-  picture: string
-  title: string
-  price: number
-  quantity: number
-}
 
 interface Props {
   item: ProductType
@@ -52,7 +45,7 @@ export function PaymentWidgetItem({ item }: Props) {
             as='span'
             fontWeight={'700'}
           >
-            € {item.price}
+            € {item.totalPrice}
           </Text>
         </Flex>
       </Flex>

@@ -1,14 +1,7 @@
 import { createContext, ReactNode } from 'react'
 import { FieldErrorsImpl, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form'
+import { ProductType } from '../@types/products'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-
-type ProductType = {
-  productRef: string
-  picture: string
-  title: string
-  price: number
-  quantity: number
-}
 
 interface CartProviderProp {
   children: ReactNode
