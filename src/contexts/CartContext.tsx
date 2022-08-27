@@ -43,7 +43,7 @@ export function CartProvider({ children }: CartProviderProp) {
     mode: 'all'
   });
   const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
-
+console.log(cart)
   return (
     <CartContext.Provider value={{
       cart,

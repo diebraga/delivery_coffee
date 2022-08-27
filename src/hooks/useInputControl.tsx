@@ -39,45 +39,43 @@ export function useInputControl({ defaultNum = 0 }: Props) {
   function handeleCartControl({
     array,
     newProduct,
-    statement1,
-    statement2
+    willDelete,
   }: {
     array: ProductType[],
     newProduct: ProductType,
-    statement1: boolean,
-    statement2: boolean,
+    willDelete: boolean,
   }) {
-    if (statement1) {
-      const foundItem = array.map(item => {
-        if (statement2 && !toast.isActive(id)) {
-          toast.closeAll()
-          toast({
-            render: () => <ToastNotification title="Updated" content={`You have ${count} ${item.title} in your cart`} color='blue.500' />,
-            position: 'top'
-          })
-        }
-        return {
-          ...item,
-          price: newProduct.price,
-          quantity: count
-        }
-      })
-      return foundItem
-    } else if (statement2) {
-      setCartNotificationOn(prev => prev + 1)
-      toast.closeAll()
-      toast({
-        render: () => <ToastNotification title="New" content={`You have ${count} ${newProduct.title} in your cart`} color='green.500' />,
-        position: 'top'
-      })
-      return [...array, newProduct]
-    } else {
+    if (willDelete) {
       toast.closeAll()
       toast({
         render: () => <ToastNotification title="Deleted" content={`${newProduct.title} has been deleted from your cart`} color='red.500' />,
         position: 'top'
       })
       return array.filter(item => item.productRef !== newProduct.productRef)
+    } else if (array.some(item => item.productRef === newProduct.productRef)) {
+      return array.map(item => {
+        if (item.productRef === newProduct.productRef) {
+          toast.closeAll()
+          toast({
+            render: () => <ToastNotification title="Updated" content={`You have ${count} ${item.title} in your cart`} color='blue.500' />,
+            position: 'top'
+          })    
+          return {
+            ...item,
+            quantity: count,
+            price: newProduct.price
+          }
+        } else return item
+      })
+    } else {
+      setCartNotificationOn(prev => prev + 1)
+      toast.closeAll()
+      toast({
+        render: () => <ToastNotification title="New" content={`You have ${count} ${newProduct.title} in your cart`} color='green.500' />,
+        position: 'top'
+      })
+      array.filter(item => item.productRef !== newProduct.productRef)
+      return [...array, newProduct]
     }
   }
 

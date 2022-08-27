@@ -46,8 +46,7 @@ const QuantityForm: FC<Props> = ({ imageSrc, price, title, productRef }) => {
     setCart(prev => handeleCartControl({
       array: prev,
       newProduct,
-      statement1: prev.some(item => item.productRef === productRef) && count !== 0,
-      statement2: count > 0
+      willDelete: count < 1
     }))
   }
 
