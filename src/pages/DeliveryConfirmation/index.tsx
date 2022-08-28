@@ -1,17 +1,23 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, HStack, Image, Text } from "@chakra-ui/react";
 import { useCart } from "../../hooks/useCart";
 import { HiLocationMarker } from "react-icons/hi";
 import { IconType } from "react-icons";
 import { AiFillClockCircle } from "react-icons/ai";
 import DeliveryMan from '../../assets/delivery_man.png'
 import { BiDollar } from "react-icons/bi";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function DeliveryConfirmation() {
   const {
     summary
   } = useCart()
-  throw new Error("err");
-  
+
+  const navigateTo = useNavigate();
+
+  useEffect(() => {
+    // if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
+  }, [])
   return (
     <Flex
       flexDir={'column'}
@@ -120,10 +126,32 @@ export function DeliveryConfirmation() {
             w='100%'
             justify={'center'}
             alignItems='center'
+            display={['none', 'none','block']}
           >
             <Image src={DeliveryMan} maxW='492px' maxH='293px' />
           </Flex>
         </Flex>
+
+        <HStack
+          mt='40px'
+          align='center'
+          justify={'center'}
+          w='100%'
+        >
+          <Button
+            w='100%'
+            colorScheme={'orange'}
+          >
+            Buy more
+          </Button>
+          <Button
+            w='100%'
+            colorScheme={'purple'}
+          >
+            Summary
+          </Button>
+        </HStack>
+
       </Flex>
     </Flex>
   )
