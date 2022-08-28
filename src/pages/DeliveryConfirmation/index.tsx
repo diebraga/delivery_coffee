@@ -17,7 +17,7 @@ export function DeliveryConfirmation() {
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    // if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
+    if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
   }, [])
 
   function onBuyMore() {
