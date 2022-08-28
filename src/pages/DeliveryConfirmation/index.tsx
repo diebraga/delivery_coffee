@@ -10,6 +10,8 @@ export function DeliveryConfirmation() {
   const {
     summary
   } = useCart()
+  throw new Error("err");
+  
   return (
     <Flex
       flexDir={'column'}
