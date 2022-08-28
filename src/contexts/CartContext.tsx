@@ -76,7 +76,6 @@ export function CartProvider({ children }: CartProviderProp) {
       navigateTo('/deliveryConfirmation')
     }
   }
-  console.log(summary)
 
   return (
     <CartContext.Provider value={{

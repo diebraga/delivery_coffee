@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import { Button, CloseButton, Flex, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { useCart } from "../../hooks/useCart";
 import { HiLocationMarker } from "react-icons/hi";
 import { IconType } from "react-icons";
@@ -13,11 +13,17 @@ export function DeliveryConfirmation() {
     summary
   } = useCart()
 
+  const { isOpen, onToggle } = useDisclosure()
   const navigateTo = useNavigate();
 
   useEffect(() => {
     // if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
   }, [])
+
+  function onBuyMore() {
+    localStorage.clear()
+    window.location.replace("/");
+  }
   return (
     <Flex
       flexDir={'column'}
@@ -126,7 +132,7 @@ export function DeliveryConfirmation() {
             w='100%'
             justify={'center'}
             alignItems='center'
-            display={['none', 'none','block']}
+            display={['none', 'none', 'block']}
           >
             <Image src={DeliveryMan} maxW='492px' maxH='293px' />
           </Flex>
@@ -141,17 +147,34 @@ export function DeliveryConfirmation() {
           <Button
             w='100%'
             colorScheme={'orange'}
+            onClick={onBuyMore}
           >
             Buy more
           </Button>
           <Button
             w='100%'
             colorScheme={'purple'}
+            onClick={onToggle}
           >
             Summary
           </Button>
         </HStack>
-
+        {isOpen && (
+          <>
+            <Flex
+              color='gray.500'
+              justify={'center'}
+              fontSize='1rem'
+              position={'absolute'}
+              w='100%'
+              bg='white'
+              minH={'100%'}
+            >
+              <pre>{JSON.stringify(summary, null, 2)}</pre>
+              <CloseButton size='lg' onClick={onToggle} color='red.500' />
+            </Flex>
+          </>
+        )}
       </Flex>
     </Flex>
   )
