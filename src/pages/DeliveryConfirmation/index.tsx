@@ -17,7 +17,7 @@ export function DeliveryConfirmation() {
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
+    // if (!summary.paymentOption || !summary.delivery_info) navigateTo('/')
   }, [])
 
   function onBuyMore() {
@@ -35,6 +35,7 @@ export function DeliveryConfirmation() {
         maxW='1200px'
         flexDir={'column'}
         p='5'
+        position={'relative'}
       >
         <Text
           as='h1'
@@ -137,7 +138,6 @@ export function DeliveryConfirmation() {
             <Image src={DeliveryMan} maxW='492px' maxH='293px' />
           </Flex>
         </Flex>
-
         <HStack
           mt='40px'
           align='center'
@@ -159,6 +159,7 @@ export function DeliveryConfirmation() {
             Summary
           </Button>
         </HStack>
+
         {isOpen && (
           <>
             <Flex
@@ -168,13 +169,13 @@ export function DeliveryConfirmation() {
               position={'absolute'}
               w='100%'
               bg='white'
-              minH={'100%'}
             >
               <pre>{JSON.stringify(summary, null, 2)}</pre>
               <CloseButton size='lg' onClick={onToggle} color='red.500' />
             </Flex>
           </>
         )}
+
       </Flex>
     </Flex>
   )
