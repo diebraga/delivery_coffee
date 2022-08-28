@@ -2,7 +2,7 @@
   {
     "id": 1,
     "ref": "@cold_espresso",
-    "picture": "/src/assets/coffee/cold_espresso.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072876-245caa59-b628-4469-9d75-0f890df73e6f.png",
     "tags": [
       {
         "id": 1,
@@ -20,7 +20,7 @@
   {
     "id": 2,
     "ref": "@american",
-    "picture": "/src/assets/coffee/american.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072670-6db00406-d359-495b-b511-86d99cbc6a34.png",
     "tags": [
       {
         "id": 1,
@@ -34,7 +34,7 @@
   {
     "id": 3,
     "ref": "@arabic",
-    "picture": "/src/assets/coffee/arabic.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072785-a8360a5b-6442-4bfd-8797-7e9f07020d6e.png",
     "tags": [
       {
         "id": 3,
@@ -48,7 +48,7 @@
   {
     "id": 4,
     "ref": "@capuccino",
-    "picture": "/src/assets/coffee/capuccino.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072817-dee404f6-a29e-4efe-99c0-6749354d1038.png",
     "tags": [
       {
         "id": 1,
@@ -66,7 +66,7 @@
   {
     "id": 5,
     "ref": "@coffee_with_milk",
-    "picture": "/src/assets/coffee/coffee_with_milk.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072847-30401956-9c06-436e-b4c4-338ae2cb39b8.png",
     "tags": [
       {
         "id": 1,
@@ -84,7 +84,7 @@
   {
     "id": 6,
     "ref": "@cuban",
-    "picture": "/src/assets/coffee/cuban.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072911-edd5dd9b-577f-48ee-af27-38444890a7a1.png",
     "tags": [
       {
         "id": 3,
@@ -106,7 +106,7 @@
   {
     "id": 7,
     "ref": "@espresso_cream",
-    "picture": "/src/assets/coffee/espresso_cream.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187072971-61e9606e-5dc1-4c6d-a321-91ef9e482957.png",
     "tags": [
       {
         "id": 1,
@@ -120,7 +120,7 @@
   {
     "id": 8,
     "ref": "@hawaian",
-    "picture": "/src/assets/coffee/hawaian.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073014-19974878-b0c5-4595-869d-275d6a6b2756.png",
     "tags": [
       {
         "id": 3,
@@ -134,7 +134,7 @@
   {
     "id": 9,
     "ref": "@hot_chocolate",
-    "picture": "/src/assets/coffee/hot_chocolate.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073051-8da5523a-aa00-4bf2-9d68-dcf9e44a1d5e.png",
     "tags": [
       {
         "id": 3,
@@ -152,7 +152,7 @@
   {
     "id": 10,
     "ref": "@irish",
-    "picture": "/src/assets/coffee/irish.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073170-ac0b02b0-66b1-4721-9793-2ca9ae995308.png",
     "tags": [
       {
         "id": 3,
@@ -170,7 +170,7 @@
   {
     "id": 19,
     "ref": "@latte",
-    "picture": "/src/assets/coffee/latte.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073202-15e4f16e-06ab-4912-9d32-99a1da5f19fc.png",
     "tags": [
       {
         "id": 1,
@@ -188,7 +188,7 @@
   {
     "id": 11,
     "ref": "@macchiato",
-    "picture": "/src/assets/coffee/macchiato.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073230-b0131224-d948-4e03-a8e8-fe589eb0cfa5.png",
     "tags": [
       {
         "id": 1,
@@ -206,7 +206,7 @@
   {
     "id": 12,
     "ref": "@mocaccino",
-    "picture": "/src/assets/coffee/mocaccino.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073230-b0131224-d948-4e03-a8e8-fe589eb0cfa5.png",
     "tags": [
       {
         "id": 1,
@@ -224,7 +224,7 @@
   {
     "id": 13,
     "ref": "@traditional_espresso",
-    "picture": "/src/assets/coffee/traditional_espresso.png",
+    "picture": "https://user-images.githubusercontent.com/52054459/187073297-6cbbb606-ceea-48e8-b08e-6654317f4b0e.png",
     "tags": [
       {
         "id": 1,
